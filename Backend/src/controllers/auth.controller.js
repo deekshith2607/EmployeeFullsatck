@@ -1,6 +1,7 @@
 import User from "../models/userModel.js";
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt"
+import { check_otp, generate_otp } from "../utils/opt.utils.js";
 
 
 const loginWitEmailPassword =async (req ,res)=>{
@@ -25,9 +26,17 @@ try{
     }
     //Generate otp
 
+    const otp = generate_otp(email)
 
+    //send opt
+
+    const userOtp =ddd;
+
+
+    
     //check otp
 
+    const isvalidOtp = check_otp(userOtp,email)
 
     //give access
 
@@ -48,5 +57,8 @@ catch(err){
     
     
 }
+const verifyOtp = async( req,res)=>{
 
-export {loginWitEmailPassword}
+}
+
+export {loginWitEmailPassword,verifyOtp}
