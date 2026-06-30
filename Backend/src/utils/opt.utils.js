@@ -9,8 +9,7 @@ export const generate_otp = async (email) => {
   //sets otp in redisDb
   const otphash = await bcrypt.hash(otp, 10);
 
-  await redisDb.set(`otphash=${email}`, otphash, { EX: 300 });
-
+await redisDb.setEx(`otphash:${email}`, 300, otphash);
   return otp;
 };
 
