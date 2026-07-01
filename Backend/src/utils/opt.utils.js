@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import redisDb from "../config/redis.config";
+import redisDb from "../config/redis.config.js";
 import bcrypt from "bcrypt";
 
 export const generate_otp = async (email) => {
@@ -9,7 +9,7 @@ export const generate_otp = async (email) => {
   //sets otp in redisDb
   const otphash = await bcrypt.hash(otp, 10);
 
-await redisDb.setEx(`otphash:${email}`, 300, otphash);
+  await redisDb.setEx(`otphash:${email}`, 300, otphash);
   return otp;
 };
 

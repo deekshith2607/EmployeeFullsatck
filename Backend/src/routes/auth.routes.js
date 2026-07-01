@@ -5,6 +5,11 @@ const authRouter = express.Router()
 
 authRouter.post('/loginWitEmailPassword',loginWitEmailPassword)
 authRouter.post('/verify-otp',verifyOtp)
+//refresh
+
+//logout
+
+
 
 
 export default authRouter
